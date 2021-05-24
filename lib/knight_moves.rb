@@ -1,9 +1,5 @@
 # frozen_string_literal: true
 
-# Importing the unit test library
-require 'test/unit/assertions'
-include Test::Unit::Assertions
-
 # Represents the tree of possible moves for a knight
 class KnightMovesTree
   attr_accessor :root, :already_played
@@ -81,11 +77,3 @@ def knight_moves_aux(start_posn, stop_posn)
   new_tree = KnightMovesTree.new(start_posn)
   new_tree.build_tree(stop_posn)
 end
-
-# Unit tests
-assert_equal knight_moves_aux([0, 0], [1, 2]), [[0, 0], [1, 2]]
-assert_equal knight_moves_aux([0, 0], [3, 3]), [[0, 0], [1, 2], [3, 3]]
-assert_equal knight_moves_aux([3, 3], [0, 0]), [[3, 3], [2, 1], [0, 0]]
-assert_equal knight_moves_aux([3, 3], [4, 3]), [[3, 3], [4, 5], [2, 4], [4, 3]]
-
-knight_moves([0, 0], [6, 7])
